@@ -1,6 +1,8 @@
 # systemd-minerd
 
-A systemd unit to manage minerd (cpuminer executable)
+A systemd unit to manage minerd (cpuminer executable).
+
+Warning: CPU mining is unprofitable!
 
 ## Installation
 
