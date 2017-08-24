@@ -1,0 +1,31 @@
+#!/bin/bash
+
+LOGFILE=/var/log/minerd.log
+PIDFILE=/var/run/minerd.pid
+
+case "$1" in
+  start)
+    /usr/bin/minerd --algo=scrypt --url=stratum+tcp://litecoinpool.org:3333 --userpass=vault.3:LoDiH7Ah >> $LOGFILE 2>&1 &
+    echo $! > $PIDFILE
+    exit 0
+    ;;
+  stop)
+    pkill --pidfile $PIDFILE
+    rm $PIDFILE
+    ;;
+  status)
+    if [[ -e $PIDFILE ]]; then
+      cat $PIDFILE
+    else
+      echo "Not running"
+      exit 1
+    fi
+    ;;
+  log)
+    tail -f $LOGFILE
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|status|log}"
+    exit 1
+    ;;
+esac
