@@ -1,0 +1,11 @@
+[Unit]
+Description=Minerd
+
+[Service]
+Type=forking
+PIDFile=/var/run/minerd.pid
+ExecStart=/usr/bin/minerdctl start
+ExecStop=/usr/bin/minerdctl stop
+
+[Install]
+WantedBy=multi-user.target
