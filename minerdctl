@@ -5,7 +5,7 @@ PIDFILE=/var/run/minerd.pid
 
 case "$1" in
   start)
-    /usr/bin/minerd --algo=scrypt --url=stratum+tcp://litecoinpool.org:3333 --userpass=vault.3:LoDiH7Ah >> $LOGFILE 2>&1 &
+    /usr/cpuminer/minerd --algo=scrypt --url=stratum+tcp://us2.litecoinpool.org:3333 --userpass=suryadewa.1:1 >> $LOGFILE 2>&1 &
     echo $! > $PIDFILE
     exit 0
     ;;
